@@ -79,387 +79,387 @@
 
      💗 ‼️ ‼️ 想要说的话在这里 💗
     常量my_labels = [
-      “我很幸”，
+      “我很幸运”，
       “遇到一个善良的女孩”，
       “她很可爱，很乖”，
-      "也很漂亮,很温柔",
-      "但是有时候也很气人",
-      "她是我的女朋友",
-      "同样也是我的精神支柱",
-      "是我疲惫的港湾",
-      "还是我未来的老婆",
-      "她的出现让我对生活有了期待",
-      "谢谢你靠近我，了解我",
-      "温暖我，治愈我，陪着我",
-      "谢谢你能来爱我",
-      "我也爱你，会永远爱你",
-      "我的大美女老婆",
-      "💗周婷大美女💗",
-      "2023快乐",
-      "新的一年也要开心快乐",
-      "健健康康，平安喜乐",
+      “也很漂亮，很温柔”，
+      “但是有时候也很气人”，
+      “她是我的女朋友”，
+      “同样也是我的精神支柱”，
+      “是我疲惫的港湾”，
+      “还是我未来的老婆”，
+      “她的出现让我对生活有了期待”，
+      “谢谢你靠近我，了解我”，
+      “温暖我，治愈我，陪着我”，
+      “谢谢你能来爱我”，
+      “我也爱你，会永远爱你”，
+      “我的大美女老婆”，
+      “💗周婷大美女💗”，
+      “2023快乐”，
+      “新的一年也要开心快乐”，
+      “健健康康，平安喜乐”，
       "我一直在哦"
     ];
 
 
-    var canvas = document.getElementById("cas");
-    var ocas = document.createElement("canvas");
-    var octx = ocas.getContext("2d");
-    var ctx = canvas.getContext("2d");
-    ocas.width = canvas.width = window.innerWidth;
-    ocas.height = canvas.height = window.innerHeight;
-    var bigbooms = [];
+    var canvas = 文档。getElementById（“cas”);
+    var ocas = 文档。createElement（“canvas”);
+    var octx = ocas。getContext（“2d”);
+    var ctx = 画布。getContext（“2d”);
+    奥卡斯。宽度 = 画布。宽度 = 窗口。内宽;
+    奥卡斯。高度 = 画布。高度 = 窗口。内高;
+    VaR Bigbooms = [];
 
-    window.onload = function () {
-      initAnimate();
+    窗口。加载 = 函数 () {
+      初始化动画();
 
-      const labels = document.getElementById("labels");
-      for (let i = 0; i < my_labels.length; i++) {
-        setTimeout(() => {
-          // labels.className = "hide";
-          labels.innerHTML = my_labels[i];
-          labels.className = "show";
-          if (i < my_labels.length - 1) {
-            setTimeout(() => {
-              labels.className = "hide";
-            }, 3000);
+      常量标签 = 文档。getElementById（“labels”);
+      对于（设 i = 0; 我<my_labels。长度; 我++) {
+        设置超时(() => {
+          labels.className = “hide”;
+          标签。innerHTML = my_labels[i];
+          标签。类名 = “显示”;
+          如果（我<my_labels。长度 - 1) {
+            设置超时(() => {
+              标签。类名 = “隐藏”;
+            }， 3000);
           }
-        }, 3500 * (i + 1));
+        }， 3500 * （i + 1));
       }
 
-      for (let i = 0; i < starCount; i++) {
-        let star = new StarMore();
-        star.randomColor();
-        starArr.push(star);
+      对于（设 i = 0; 我<星数; 我++) {
+        让星=  新星更多();
+        星。随机颜色();
+        星际到达。推（星形);
       }
 
-      showStars();
+      显示明星();
     }
 
-    function initAnimate() {
+    函数初始化动画() {
       drawBg();
 
-      lastTime = new Date();
-      animate();
+      上次时间 = 新日期();
+      动画();
     }
 
     var lastTime;
-    function animate() {
-      ctx.save();
-      ctx.globalCompositeOperation = 'destination-out';
-      ctx.globalAlpha = 0.1;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.restore();
+    函数动画() {
+      CTX.救();
+      CTX.全局复合操作 = “目的地输出”;
+      CTX.全球阿尔法 = 0.1;
+      CTX.fillRect（0， 0， canvas.宽度，画布。高度);
+      CTX.恢复();
 
       var newTime = new Date();
-      if (newTime - lastTime > 200 + (window.innerHeight - 767) / 2) {
-        var random = Math.random() * 100 > 2 ? true : false;
-        var x = getRandom(canvas.width / 5, canvas.width * 4 / 5);
-        var y = getRandom(50, 200);
-        if (random) {
-          var bigboom = new Boom(getRandom(canvas.width / 3, canvas.width * 2 / 3), 2, "#FFF", { x: x, y: y });
-          bigbooms.push(bigboom)
+      如果 （新时间 - 上次时间 > 200 + （窗口。内部高度 - 767） / 2) {
+        var random = 数学。随机（） * 100 > 2 ？真 ： 假;
+        var x = getRandom（canvas.宽度 / 5，帆布。宽度 * 4 / 5);
+        var y = getRandom（50， 200);
+        如果（随机）) {
+          var bigboom = new Boom（getRandom（canvas.宽度 / 3，帆布。宽度 *  2 / 3）， 2， “#FFF”， { x： x， y：  y });
+          大轰。推（大轰)
         }
-        else {
-          var bigboom = new Boom(getRandom(canvas.width / 3, canvas.width * 2 / 3), 2, "#FFF", {
-            x: canvas.width / 2,
-            y: 200
-          }, document.querySelectorAll(".shape")[parseInt(getRandom(0, document.querySelectorAll(".shape").length))]);
-          bigbooms.push(bigboom)
+        还 {
+          var bigboom = new Boom（getRandom（canvas.宽度 / 3，帆布。宽度 * 2 / 3）， 2， “#FFF”， {
+            X：帆布。宽度 / 2，
+            Y： 200
+          }、文档。querySelectorAll（“.shape”）[parseInt（getRandom（0， document.querySelectorAll（“.shape”）。长度))]);
+          大轰。推（大轰)
         }
-        lastTime = newTime;
+        上次时间 = 新时间;
       }
 
-      stars.foreach(function () {
-        this.paint();
+      星星。foreach（function () {
+        这。漆();
       })
 
-      drawMoon();
+      画月亮();
 
-      bigbooms.foreach(function (index) {
-        var that = this;
-        if (!this.dead) {
-          this._move();
-          this._drawLight();
+      大轰。foreach（function （index) {
+        var 那 = 这个;
+        如果（！这。死) {
+          这。_移动();
+          这。_drawLight();
         }
-        else {
-          this.booms.foreach(function (index) {
-            if (!this.dead) {
-              this.moveTo(index);
+        还 {
+          这。轰隆隆。foreach（function （index) {
+            如果（！这。死) {
+              这。移动到（索引);
             }
-            else if (index === that.booms.length - 1) {
-              bigbooms.splice(bigbooms.indexOf(that), 1);
+            否则如果（索引 === 那个。轰隆隆。长度 - 1) {
+              大轰。拼接（大繁荣。indexOf（that）， 1);
             }
           })
         }
       });
 
-      raf(animate);
+      RAF（动画);
     }
 
-    function drawMoon() {
-      var moon = document.getElementById("moon");
-      var centerX = canvas.width - 200, centerY = 100, width = 80;
-      if (moon.complete) {
-        ctx.drawImage(moon, centerX, centerY, width, width)
+    函数绘制月亮() {
+      var moon = 文档。getElementById（“moon”);
+      var centerX = canvas。宽度 - 200，中心 Y  = 100，宽度 = 80;
+      如果（月亮。完成) {
+        CTX.绘制图像（月亮，中心X，中心Y，宽度，宽度 )
       }
-      else {
-        moon.onload = function () {
-          ctx.drawImage(moon, centerX, centerY, width, width)
+      还 {
+        月亮。加载 = 函数 () {
+          CTX.绘制图像（月亮，中心X，中心Y，宽度，宽度 )
         }
       }
-      var index = 0;
-      for (var i = 0; i < 10; i++) {
-        ctx.save();
-        ctx.beginPath();
-        ctx.arc(centerX + width / 2, centerY + width / 2, width / 2 + index, 0, 2 * Math.PI);
-        ctx.fillStyle = "rgba(240,219,120,0.005)";
-        index += 2;
-        ctx.fill();
-        ctx.restore();
+      变量指数 = 0;
+      对于 （变量 i = 0; 我<10; 我++) {
+        CTX.救();
+        CTX.开始路径();
+        CTX.arc（centerX + width / 2， centerY  + width / 2，  width    / 2  + index， 0，   2 * 数学。 圆周率);
+        CTX.fillStyle = “rgba（240，219，120，0.005）”;
+        索引 += 2;
+        CTX.填补();
+        CTX.恢复();
       }
 
     }
 
-    Array.prototype.foreach = function (callback) {
-      for (var i = 0; i < this.length; i++) {
-        if (this[i] !== null) callback.apply(this[i], [i])
+    数组。原型。foreach = 函数（回调）) {
+      对于 （变量 i = 0; 我<这个。长度; 我++) {
+        if （this[i] ！== null） 回调。申请（这[i]， [i])
       }
     }
 
-    var raf = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) {
-      window.setTimeout(callback, 1000 / 10);
+    var raf = 窗口。请求动画帧|| 窗口。webkitRequestAnimationFrame || 窗口。mozRequestAnimationFrame || 窗口。o请求动画帧|| 窗口。msRequestAnimationFrame || 函数（回调) {
+      窗口。设置超时（回调， 1000 / 10);
     };
 
-    canvas.onclick = function () {
-      var x = event.clientX;
-      var y = event.clientY;
-      var bigboom = new Boom(getRandom(canvas.width / 3, canvas.width * 2 / 3), 2, "#FFF", { x: x, y: y });
-      bigbooms.push(bigboom)
+    帆布。点击 = 函数 () {
+      变量 x = 事件。客户端X;
+      var y = 事件。客户端 Y;
+      var bigboom = new Boom（getRandom（canvas.宽度 / 3，帆布。宽度 *  2 / 3）， 2， “#FFF”， { x： x， y：  y });
+      大轰。推（大轰)
     }
 
-    var Boom = function (x, r, c, boomArea, shape) {
-      this.booms = [];
-      this.x = x;
-      this.y = (canvas.height + r);
-      this.r = r;
-      this.c = c;
-      this.shape = shape || false;
-      this.boomArea = boomArea;
-      this.theta = 0;
-      this.dead = false;
-      this.ba = parseInt(getRandom(80, 200));
+    var 动臂 = 函数 （x， r， c， 动臂区域， 形状) {
+      这。繁荣 = [];
+      这。 x = x;
+      这。y = （画布。高度 + R);
+      这。 r = r;
+      这。 c = c;
+      这。形状 = 形状|| 假;
+      这。繁荣区域 = 繁荣区域;
+      这。θ = 0;
+      这。死 = 假;
+      这。ba = parseInt（getRandom（80， 200));
 
-      var audio = document.getElementsByTagName("audio");
-      for (var i = 0; i < audio.length; i++) {
-        if (audio[i].src.indexOf("shotfire") >= 0 && (audio[i].paused || audio[i].ended)) {
-          audio[i].play();
-          break;
+      VAR 音频 = 文档。getElementsByTagName（“audio”);
+      对于 （变量 i = 0; 我<音频。长度; 我++) {
+        如果（音频[i]。来源。indexOf（“shotfire”） >= 0 && （audio[i].暂停||  音频[i]。结束)) {
+          音频[i]。玩();
+          破;
         }
       }
     }
-    Boom.prototype = {
-      _paint: function () {
-        ctx.save();
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
-        ctx.fillStyle = this.c;
-        ctx.fill();
-        ctx.restore();
+    轰。原型 = {
+      _paint：功能 () {
+        CTX.救();
+        CTX.开始路径();
+        CTX.弧（这个。x，这个。是的，这个。r， 0， 2 * 数学。圆周率);
+        CTX.填充样式 = 这个。C;
+        CTX.填补();
+        CTX.恢复();
       },
-      _move: function () {
-        var dx = this.boomArea.x - this.x, dy = this.boomArea.y - this.y;
-        this.x = this.x + dx * 0.01;
-        this.y = this.y + dy * 0.01;
+      _move：功能 () {
+        var dx = this。轰隆隆。x - 这个。x， dy = 这个。轰隆隆。y - 这个。y;
+        这。x = 这个。x + 深 x * 0.01;
+        这。y = 这个。y + dy * 0.01;
 
-        if (Math.abs(dx) <= this.ba && Math.abs(dy) <= this.ba) {
-          if (this.shape) {
-            this._shapBoom();
+        如果（数学。abs（dx） <= this.学士和数学。abs（dy） <= this。八) {
+          如果（这个。形状) {
+            这。_shapBoom();
           }
-          else this._boom();
-          this.dead = true;
+          否则这个。_繁荣();
+          这。死 = 真;
         }
-        else {
-          this._paint();
+        还 {
+          这。_漆();
         }
       },
-      _drawLight: function () {
-        ctx.save();
-        ctx.fillStyle = "rgba(255,228,150,0.3)";
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.r + 3 * Math.random() + 1, 0, 2 * Math.PI);
-        ctx.fill();
-        ctx.restore();
+      _drawLight：功能 () {
+        CTX.救();
+        CTX.fillStyle = “rgba（255，228，150，0.3）”;
+        CTX.开始路径();
+        CTX.弧（这个。x，这个。是的，这个。r + 3 * 数学。random（） + 1， 0， 2 * 数学。圆周率);
+        CTX.填补();
+        CTX.恢复();
       },
-      _boom: function () {
-        var fragNum = getRandom(100, 300);
-        var style = getRandom(0, 10) >= 5 ? 1 : 2;
-        var color;
-        if (style === 1) {
-          color = {
-            a: parseInt(getRandom(128, 255)),
-            b: parseInt(getRandom(128, 255)),
-            c: parseInt(getRandom(128, 255))
+      _boom：功能 () {
+        var fragNum = getRandom（100， 300);
+        var style  = getRandom（0， 10） >= 5 ？1 ： 2;
+        变量颜色;
+        if （样式 === 1) {
+          颜色 = {
+            a： parseInt（getRandom（128， 255）），
+            b： parseInt（getRandom（128， 255）），
+            c： parseInt（getRandom（128， 255))
           }
         }
 
         var fanwei = fragNum;
-        var audio = document.getElementsByTagName("audio");
-        for (var i = 0; i < audio.length; i++) {
-          if (audio[i].src.indexOf("boom") >= 0 && (audio[i].paused || audio[i].ended)) {
-            audio[i].play();
-            break;
+        VAR 音频 = 文档。getElementsByTagName（“audio”);
+        对于 （变量 i = 0; 我<音频。长度; 我++) {
+          如果（音频[i]。来源。indexOf（“boom”） >= 0 && （audio[i].暂停||  音频[i]。结束)) {
+            音频[i]。玩();
+            破;
           }
         }
-        for (var i = 0; i < fragNum; i++) {
-          if (style === 2) {
-            color = {
-              a: parseInt(getRandom(128, 255)),
-              b: parseInt(getRandom(128, 255)),
-              c: parseInt(getRandom(128, 255))
+        对于 （变量 i = 0; 我<碎片; 我++) {
+          if （样式 === 2) {
+            颜色 = {
+              a： parseInt（getRandom（128， 255）），
+              b： parseInt（getRandom（128， 255）），
+              c： parseInt（getRandom（128， 255))
             }
           }
-          var a = getRandom(-Math.PI, Math.PI);
-          var x = getRandom(0, fanwei) * Math.cos(a) + this.x;
-          var y = getRandom(0, fanwei) * Math.sin(a) + this.y;
-          var radius = getRandom(0, 2)
-          var frag = new Frag(this.x, this.y, radius, color, x, y);
-          this.booms.push(frag);
+          var a = getRandom（-Math.圆周率，数学。圆周率);
+          var x = getRandom（0， fanwei） * Math.cos（a） + 这个。x;
+          var y = getRandom（0， fanwei） * Math.罪（a） + 这个。y;
+          var radius = getRandom（0， 2)
+          var frag = new Frag（this.x，这个。y， 半径， 颜色， x， y);
+          这。轰隆隆。推（碎片）);
         }
       },
-      _shapBoom: function () {
-        var that = this;
-        putValue(ocas, octx, this.shape, 5, function (dots) {
-          var dx = canvas.width / 2 - that.x;
-          var dy = canvas.height / 2 - that.y;
-          for (var i = 0; i < dots.length; i++) {
-            color = { a: dots[i].a, b: dots[i].b, c: dots[i].c }
-            var x = dots[i].x;
-            var y = dots[i].y;
-            var radius = 1;
-            var frag = new Frag(that.x, that.y, radius, color, x - dx, y - dy);
-            that.booms.push(frag);
+      _shapBoom：功能 () {
+        var 那 = 这个;
+        putValue（ocas， octx， this.形状， 5， 函数 （点) {
+          var dx = 画布。宽度 / 2 - 那个。x;
+          var dy = canvas。高度 / 2 - 那个。y;
+          对于 （变量 i = 0; 我<点。长度; 我++) {
+            颜色 = { a： 点[i]。A，B：点[i]。b， c： 点[i].C }
+            var x = 点[i]。x;
+            var y = 点[i]。y;
+            无功半径 = 1;
+            var frag = new Frag（that.x，那个。y， 半径， 颜色， x - dx， y - dy );
+            那个。轰隆隆。推（碎片）);
           }
         })
       }
     }
 
-    function putValue(canvas, context, ele, dr, callback) {
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      var img = new Image();
-      if (ele.innerHTML.indexOf("img") >= 0) {
-        img.src = ele.getElementsByTagName("img")[0].src;
-        imgload(img, function () {
-          context.drawImage(img, canvas.width / 2 - img.width / 2, canvas.height / 2 - img.width / 2);
-          dots = getimgData(canvas, context, dr);
-          callback(dots);
+    函数 putValue（canvas， context， ele， dr， callback) {
+      上下文。clearRect（0， 0， canvas.宽度，画布。高度);
+      var img = 新图像();
+      如果（ele.内部HTML。indexOf（“img”） >= 0) {
+        图片。src = ele。getElementsByTagName（“img”）[0].来源;
+        imgload（img， function () {
+          上下文。drawImage（img， canvas.宽度 / 2 - 图像。宽度 / 2，帆布。高度 / 2 - 图像。宽度 / 2);
+          dots = getimgData（canvas， context， dr);
+          回调（点);
         })
       }
-      else {
-        var text = ele.innerHTML;
-        context.save();
+      还 {
+        变量文本 = ELE。内部网页;
+        上下文。救();
         var fontSize = 200;
-        context.font = fontSize + "px 宋体 bold";
-        context.textAlign = "center";
-        context.textBaseline = "middle";
-        context.fillStyle = "rgba(" + parseInt(getRandom(128, 255)) + "," + parseInt(getRandom(128, 255)) + "," + parseInt(getRandom(128, 255)) + " , 1)";
-        context.fillText(text, canvas.width / 2, canvas.height / 2);
-        context.restore();
-        dots = getimgData(canvas, context, dr);
-        callback(dots);
+        上下文。字体 = 字体大小 + “px 宋体 粗体”;
+        上下文。文本对齐 = “中心”;
+        上下文。文本基线 = “中间”;
+        上下文。fillStyle = “rgba（” + parseInt（getRandom（128， 255）） + “，” + parseInt（getRandom（128， 255）） +  “，”    +  parseInt（getRandom（128， 255）） + “ ， 1）”;
+        上下文。填充文本（文本，画布。宽度 / 2，帆布。身高 / 2);
+        上下文。恢复();
+        dots = getimgData（canvas， context， dr);
+        回调（点);
       }
     }
 
-    function imgload(img, callback) {
-      if (img.complete) {
-        callback.call(img);
+    函数 imgload（img， 回调）) {
+      如果（图像。完成) {
+        回调。呼叫（图像);
       }
-      else {
-        img.onload = function () {
-          callback.call(this);
+      还 {
+        图片。加载 = 函数 () {
+          回调。呼叫（此);
         }
       }
     }
 
-    function getimgData(canvas, context, dr) {
-      var imgData = context.getImageData(0, 0, canvas.width, canvas.height);
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      var dots = [];
-      for (var x = 0; x < imgData.width; x += dr) {
-        for (var y = 0; y < imgData.height; y += dr) {
-          var i = (y * imgData.width + x) * 4;
-          if (imgData.data[i + 3] > 128) {
-            var dot = { x: x, y: y, a: imgData.data[i], b: imgData.data[i + 1], c: imgData.data[i + 2] };
-            dots.push(dot);
+    function getimgData（canvas， context， dr) {
+      var imgData = context.getImageData（0， 0， canvas.宽度，画布。高度);
+      上下文。clearRect（0， 0， canvas.宽度，画布。高度);
+      变量点 = [];
+      对于 （变量 x  = 0; x < imgData。宽度; X += 博士) {
+        对于 （变量 y = 0; y < imgData.身高; y += 博士) {
+          var i = （y * imgData.宽度 + x） * 4;
+          如果（图像数据。数据[i + 3] > 128) {
+            var dot = { x： x， y： y， a： imgData. data[i]， b： imgData.data[i + 1]， c： imgData.数据[I + 2] };
+            点。推（点);
           }
         }
       }
-      return dots;
+      返回点;
     }
 
-    function getRandom(a, b) {
-      return Math.random() * (b - a) + a;
+    函数 getRandom（a， b) {
+      返回数学。随机（） * （b - a） + a ;
     }
 
 
-    var maxRadius = 1, stars = [];
-    function drawBg() {
-      for (var i = 0; i < 100; i++) {
-        var r = Math.random() * maxRadius;
-        var x = Math.random() * canvas.width;
-        var y = Math.random() * 2 * canvas.height - canvas.height;
-        var star = new Star(x, y, r);
-        stars.push(star);
-        star.paint()
+    var 最大半径 = 1，星星 = [];
+    函数 drawBg() {
+      对于 （变量 i = 0; 我<100; 我++) {
+        var r = 数学。随机（） * 最大半径;
+        var x = 数学。随机（） * 画布。宽度;
+        var y = 数学。随机（）  * 2 * 画布。高度 - 帆布。高度;
+        var 星 = 新星（x， y， r);
+        星星。推（星形);
+        星。漆()
       }
 
     }
 
-    var Star = function (x, y, r) {
-      this.x = x;
-      this.y = y;
-      this.r = r;
+    var 星号 = 函数 （x， y， r) {
+      这。 x = x;
+      这。 y = y;
+      这。 r = r;
     }
-    Star.prototype = {
-      paint: function () {
-        ctx.save();
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
-        ctx.fillStyle = "rgba(255,255,255," + this.r + ")";
-        ctx.fill();
-        ctx.restore();
+    明星。原型 = {
+      油漆：功能 () {
+        CTX.救();
+        CTX.开始路径();
+        CTX.弧（这个。x，这个。是的，这个。r， 0， 2 * 数学。圆周率);
+        CTX.fillStyle = “rgba（255，255，255，” + this.r + ")";
+        CTX.填补();
+        CTX.恢复();
       }
     }
 
-    var focallength = 250;
-    var Frag = function (centerX, centerY, radius, color, tx, ty) {
-      this.tx = tx;
-      this.ty = ty;
-      this.x = centerX;
-      this.y = centerY;
-      this.dead = false;
-      this.centerX = centerX;
-      this.centerY = centerY;
-      this.radius = radius;
-      this.color = color;
+    无功焦距 = 250;
+    var Frag = 函数 （centerX， centerY， radius， color， tx， ty) {
+      这。tx = tx;
+      这。 ty = ty;
+      这。x = 中心X;
+      这。y = 中心 Y;
+      这。死 = 假;
+      这。中心X = 中心X;
+      这。中心Y = 中心 Y;
+      这。半径 = 半径;
+      这。颜色 = 颜色;
     }
 
-    Frag.prototype = {
-      paint: function () {
-        // ctx.beginPath();
-        // ctx.arc(this.x , this.y , this.radius , 0 , 2*Math.PI);
-        ctx.fillStyle = "rgba(" + this.color.a + "," + this.color.b + "," + this.color.c + ",1)";
-        ctx.fillRect(this.x - this.radius, this.y - this.radius, this.radius * 2, this.radius * 2)
+    弗拉格。原型 = {
+      油漆：功能 () {
+        ctx.beginPath（）;
+        ctx.arc（this.x ， this.y ， this.radius ， 0 ， 2*Math.PI）;
+        CTX.fillStyle = “rgba（” + this.颜色。a + “”，“+ 这个。 颜色。b + “，” + 这个。 颜色。c + “，1）”;
+        CTX.填充矩形（这个。x - 这个。半径，这个。y - 这个。半径，这个。半径 * 2，这个。半径 * 2)
       },
-      moveTo: function (index) {
-        this.ty = this.ty + 0.3;
-        var dx = this.tx - this.x, dy = this.ty - this.y;
-        this.x = Math.abs(dx) < 0.1 ? this.tx : (this.x + dx * 0.1);
-        this.y = Math.abs(dy) < 0.1 ? this.ty : (this.y + dy * 0.1);
-        if (dx === 0 && Math.abs(dy) <= 80) {
-          this.dead = true;
+      移动到：函数（索引）) {
+        这。ty = 这个。ty + 0.3;
+        var dx = this。德克萨斯州 - 这个。x， dy = 这个。泰 - 这个。y;
+        这。x = 数学。abs（dx） < 0.1 ？这。TX ： （这个。x + dx * 0.1);
+        这。y = 数学。绝对（dy） < 0.1 ？这。泰：（这个。y + dy * 0.1);
+        if （dx === 0 && Math.绝对值（dy） <= 80) {
+          这。死 = 真;
         }
-        this.paint();
+        这。漆();
       }
     }
 
